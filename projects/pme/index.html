@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Consumer Choice Simulator ft. Quick Commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Outfit:wght@800&family=Nunito:wght@800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f5f7fa;--card:#fff;--text:#14202e;--muted:#566474;--faint:#9aa6b2;--border:#e0e5ea;--blue:#2a78d6;--green:#12905c;--gtint:rgba(27,175,122,.11);--red:#d23f3e;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e141b;--card:#161f29;--text:#e8edf2;--muted:#a0b0bf;--faint:#6a7b8b;--border:#26323e;--blue:#5aa0f0;--green:#3ccf94;--gtint:rgba(60,207,148,.12);--red:#ef6a69;color-scheme:dark}}
@@ -42,7 +45,7 @@ h1{font-size:clamp(20px,4.6vw,28px);line-height:1.2;margin:0 0 4px;font-weight:6
 .gcard.fs #g{position:absolute;inset:0;width:100%;height:100%;max-height:none}
 svg text{font-size:12.5px;fill:var(--muted)}
 .bl{fill:none;stroke:var(--text);stroke-width:2.6;stroke-linecap:round}
-.rf{fill:none;stroke:var(--text);stroke-width:1.6;stroke-dasharray:6 4;opacity:.55}
+.rf{fill:none;stroke:#8b5cf6;stroke-width:2.2;stroke-dasharray:10 5}
 .ic{fill:none;stroke:var(--blue);stroke-width:2.6;stroke-linejoin:round}
 .ic2{fill:none;stroke:var(--faint);stroke-width:1.6;stroke-dasharray:5 3;stroke-linejoin:round}
 .ax{stroke:var(--faint);stroke-width:1}
@@ -61,6 +64,11 @@ svg text.pl{fill:var(--text);font-weight:600;paint-order:stroke;stroke:var(--car
 .row.main label{font-weight:600}
 .row input{flex:1;min-width:0;accent-color:var(--blue);height:28px;margin:0}
 .row output{flex:0 0 50px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;font-size:14px}
+.num{flex:0 0 auto;display:flex;align-items:center;gap:3px;font-size:13px;color:var(--muted)}
+.num input{flex:0 0 54px;min-width:54px;width:54px;height:auto;margin:0;font:inherit;font-size:14px;font-weight:600;text-align:right;padding:4px 6px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);-moz-appearance:textfield;appearance:textfield}
+.num input::-webkit-inner-spin-button,.num input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.num input:disabled{opacity:.5}
+.fee .row label{flex-basis:96px}
 .fee{border:1px solid var(--border);border-radius:10px;padding:6px 10px;margin:8px 0}
 .fh{display:flex;gap:8px;align-items:center;margin-bottom:2px}
 .fn{flex:1;min-width:0;font:inherit;font-size:14px;font-weight:600;padding:6px 8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
@@ -93,6 +101,14 @@ svg text.pl{fill:var(--text);font-weight:600;paint-order:stroke;stroke:var(--car
 svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 @media(prefers-reduced-motion:reduce){.cl-fill{transition:none}}
 .note{font-size:12px;color:var(--muted);margin:10px 2px 0}
+.best p.rl{color:var(--muted);margin:0}
+.rd{margin-top:8px}
+.rd summary{cursor:pointer;font-size:13px;color:var(--blue);font-weight:600}
+.rd ol,.rd p{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.rd ol{padding-left:20px}
+.rd li{margin:2px 0}
+a.btn{text-decoration:none}
+.foot{max-width:1040px;margin:8px auto 0;padding:16px 14px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
 .help{position:fixed;inset:0;z-index:200;display:flex;justify-content:flex-end;align-items:flex-start;padding:calc(56px + env(safe-area-inset-top,0px)) 14px 14px}
 .hbk{position:absolute;inset:0;background:rgba(0,0,0,.45)}
 .hp{position:relative;width:min(460px,100%);max-height:80vh;max-height:calc(100dvh - 80px);overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
@@ -103,6 +119,31 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 .hp summary{cursor:pointer;font-weight:600;font-size:14.5px}
 .hp dl{margin:8px 0 0}.hp dt{font-weight:600;font-size:14px}.hp dd{margin:0 0 8px;font-size:14px;color:var(--muted)}
 .hp p,.hp li{font-size:14px;color:var(--muted)}.hp p{margin:8px 0 0}.hp ul,.hp ol{margin:6px 0 0;padding-left:20px}
+.left{display:grid;gap:12px;min-width:0}
+.ph{display:flex;justify-content:space-between;align-items:baseline;gap:4px 8px;flex-wrap:wrap;padding:0 2px 8px}
+.ph b{font-size:14px;font-weight:650}
+.ph span{font-size:12px;color:var(--muted)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px}
+.pst{--pc:var(--blue);font:inherit;position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;min-height:68px;padding:10px 12px;border:0;border-radius:12px;text-align:left;cursor:pointer}
+.pst:hover{filter:brightness(1.06)}
+.pst:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+.pst[aria-pressed="true"]{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--pc)}
+.pst[aria-pressed="true"]::after{content:"\2713";position:absolute;top:7px;right:10px;font-size:14px;font-weight:800}
+.pst .wm{font-size:23px;line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.pst .wm em{display:block;font-style:normal;font-size:11px;letter-spacing:.01em;margin-bottom:1px}
+.pst .ps{font-size:11.5px;font-weight:600;line-height:1.3;opacity:.88}
+.pst.bk{background:#f8cb46;color:#1b1b1b;--pc:#0c831f}
+.pst.bk .wm{font-family:'Poppins','Nunito','Segoe UI',system-ui,sans-serif;text-transform:lowercase}
+.pst.bk .wm i{font-style:normal;color:#0c831f}
+.pst.zp{background:linear-gradient(135deg,#3b0a70,#6a1fc4);color:#fff;--pc:#8b3dff}
+.pst.zp .wm{font-family:'Outfit','Poppins','Segoe UI',system-ui,sans-serif;text-transform:lowercase;letter-spacing:-.02em}
+.pst.sw{background:linear-gradient(135deg,#f26a0c,#fc8019);color:#fff;--pc:#fc8019}
+.pst.sw .wm{font-family:'Nunito','Poppins','Segoe UI',system-ui,sans-serif}
+.pst.sw .ps{color:#2a1500;opacity:1}
+.pst.cu{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+.pst.cu .wm{font-size:17px;font-weight:650;letter-spacing:0}
+.alw{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin:2px 0 4px}
+.alw input{margin:0;accent-color:var(--blue)}
 </style>
 </head>
 <body>
@@ -113,19 +154,32 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 </header>
 
 <section class="scene">
+<div class="left">
 <div class="card gcard" id="gcard">
 <div class="ghead"><span>Budget line and indifference curves</span><button class="btn" id="fsb" type="button"></button></div>
 <div class="gbox" id="gbox"><svg id="g" viewBox="0 0 400 265" role="img" aria-label="Budget line with jumps where charges end, and indifference curves for each choice"></svg></div>
-<div class="legend"><span><i style="border-top:3px solid var(--text)"></i>Budget line with charges</span><span><i style="border-top:2px dashed var(--text)"></i>Budget line with no charges</span><span><i style="border-top:3px solid var(--blue)"></i>Best indifference curve</span><span><i style="border-top:2px dashed var(--faint)"></i>Other choices</span><span><i class="sw"></i>Dead zone</span></div>
+<div class="legend"><span><i style="border-top:3px solid var(--text)"></i>Budget line with charges</span><span><i style="border-top:2px dashed #8b5cf6"></i>Budget line with no charges</span><span><i style="border-top:3px solid var(--blue)"></i>Best indifference curve</span><span><i style="border-top:2px dashed var(--faint)"></i>Other choices</span><span><i class="sw"></i>Dead zone</span></div>
+</div>
+<div class="card pcard" id="pcard">
+<div class="ph"><b>Platform presets</b><span>Load a platform’s charges in one tap</span></div>
+<div class="pgrid" id="pgrid">
+<button class="pst bk" type="button" data-p="blinkit" aria-pressed="false"><span class="wm">blink<i>it</i></span><span class="ps">Free delivery from ₹149</span></button>
+<button class="pst zp" type="button" data-p="zepto" aria-pressed="false"><span class="wm">zepto</span><span class="ps">Free delivery from ₹49</span></button>
+<button class="pst sw" type="button" data-p="instamart" aria-pressed="false"><span class="wm"><em>swiggy</em>instamart</span><span class="ps">Free delivery from ₹149</span></button>
+<button class="pst cu" type="button" data-p="example" aria-pressed="false"><span class="wm">Class example</span><span class="ps">₹30 delivery below ₹100</span></button>
+</div>
+<p class="hint" id="pn"></p>
+<p class="hint" style="font-size:11px;margin-top:2px">Platform charge data as of 8 Nov 2026, Vijay Nagar, Delhi.</p>
+</div>
 </div>
 <div class="card">
-<div class="row main"><label for="M">Your budget (₹)</label><input type="range" id="M" min="60" max="500" step="10" value="200"><output id="Mo"></output></div>
-<div class="row main"><label for="P">Main cart (₹)</label><input type="range" id="P" min="10" max="180" step="1" value="40"><output id="Po"></output></div>
-<div class="row"><label for="m">Main items: subjective worth</label><input type="range" id="m" min="1" max="3" step="0.1" value="2"><output id="mo"></output></div>
+<div class="row main"><label for="M">Your budget (₹)</label><input type="range" id="M" min="60" max="500" step="1" value="200"><span class="num"><span>₹</span><input type="number" id="Mo" min="60" max="500" step="1" inputmode="numeric" aria-label="Your budget in rupees"></span></div>
+<div class="row main"><label for="P">Main cart (₹)</label><input type="range" id="P" min="10" max="180" step="1" value="60"><span class="num"><span>₹</span><input type="number" id="Po" min="10" max="180" step="1" inputmode="numeric" aria-label="Main cart in rupees"></span></div>
+<div class="row"><label for="m">Main items: subjective worth</label><input type="range" id="m" min="1" max="3" step="0.01" value="1.5"><span class="num"><input type="number" id="mo" min="1" max="3" step="0.01" inputmode="decimal" aria-label="Main items subjective worth as a multiple of price"><span>×</span></span></div>
 <div id="fees"></div>
 <button class="btn add" id="addf" type="button">+ Add another charge</button>
-<div class="row"><label for="r">Extra items: subjective worth</label><input type="range" id="r" min="0" max="1.5" step="0.05" value="0.6"><output id="ro"></output></div>
-<div class="row"><label for="E">Extras added (₹)</label><input type="range" id="E" min="0" max="100" step="1" value="0"><output id="Eo"></output></div>
+<div class="row"><label for="r">Extra items: subjective worth</label><input type="range" id="r" min="0" max="1.5" step="0.01" value="0.75"><span class="num"><input type="number" id="ro" min="0" max="1.5" step="0.01" inputmode="decimal" aria-label="Extra items subjective worth as a multiple of price"><span>×</span></span></div>
+<div class="row"><label for="E">Extras added (₹)</label><input type="range" id="E" min="0" max="100" step="1" value="0"><span class="num"><span>₹</span><input type="number" id="Eo" min="0" max="100" step="1" inputmode="numeric" placeholder="–" aria-label="Extras added in rupees"></span></div>
 <p class="hint">Subjective worth is how much the items are worth to you personally, as a multiple of their price. 1.0× means worth exactly their price. Above 1.0× the extras are normal items you would want anyway.</p>
 <p class="hint" id="eh"></p>
 </div>
@@ -134,10 +188,11 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 <section>
 <div id="best" class="best"></div>
 <div id="opts" class="opts"></div>
-<p class="note">Net gain = what the items are subjectively worth to you minus what you pay. All values are made-up numbers for teaching, not real app data.</p>
+<p class="note">Net gain = what the items are subjectively worth to you minus what you pay. The platform presets use the delivery, handling and small-cart charges supplied for this project, and real apps change them often. All other values are made-up numbers for teaching.</p>
 </section>
 </main>
 
+<footer class="foot"><span>© 2026 Made by Rigved Kasab</span><a class="btn" href="https://rigvedkasab.github.io" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Back to my homepage</a></footer>
 <div class="help" id="help" hidden>
 <div class="hbk" id="hbk"></div>
 <div class="hp" role="dialog" aria-modal="true" aria-labelledby="ht">
@@ -148,9 +203,10 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 <dt>Main cart</dt><dd>The things you really want to buy, and what they cost on the app.</dd>
 <dt>Subjective</dt><dd>Depends on you. Two people can feel differently about the same item. The price is the same for everyone, but the worth is your own feeling.</dd>
 <dt>Main items: subjective worth</dt><dd>How much those things are worth to you personally. 1.0× means worth exactly their price. 2.0× means you would happily pay double.</dd>
+<dt>Platform presets</dt><dd>Loads the charges of Blinkit, Zepto or Swiggy Instamart in one tap. You can still change every number afterwards.</dd>
 <dt>Charge (delivery fee and others)</dt><dd>Money you pay on top of your items. You can add more than one and rename each one.</dd>
 <dt>Amount</dt><dd>How many rupees the charge costs.</dd>
-<dt>Charged below</dt><dd>The charge applies when your cart is under this number. At this number or above, the charge goes away.</dd>
+<dt>Charged below</dt><dd>The charge applies when your cart is under this number. At this number or above, the charge goes away. Tick “Charged on every order” for a charge that never goes away, like a handling fee.</dd>
 <dt>Top-up</dt><dd>Adding extra items only to reach that number and skip a charge.</dd>
 <dt>Extras added</dt><dd>How many rupees of extra items you add. The smallest top-up is the least you need to skip a charge.</dd>
 <dt>Extra items: subjective worth</dt><dd>How much the extra items are worth to you personally. 0.5× means each ₹100 of extras feels like ₹50 to you.</dd>
@@ -161,16 +217,16 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 <dt>Indifference curve</dt><dd>All the carts that give you the same level of satisfaction, so you are equally happy with each one. A curve higher up is better. The best choice sits on the highest curve you can reach.</dd>
 </dl></details>
 <details><summary>How do I use this page?</summary>
-<ol><li>Set your main cart and how much those items are worth to you (their subjective worth).</li><li>Set the charges your app really has: the amount, and the cart value where it stops.</li><li>Say how much you like the extra items.</li><li>Read the best choice, and open See the calculation to check the sums.</li></ol></details>
+<ol><li>Set your main cart and how much those items are worth to you (their subjective worth).</li><li>Set the charges your app really has: the amount, and the cart value where it stops.</li><li>Say how much you like the extra items.</li><li>Read the best choice, and open See the calculation to check the sums.</li><li>Tip: type an exact number in the box beside any slider, then press Enter.</li></ol></details>
 <details><summary>Is this website really useful? (honest answer)</summary>
 <p>It is a good teaching tool and a small decision helper. It is not a shopping robot.</p>
 <ul><li>It helps you see why apps set a free-delivery amount, and why people add things they do not need.</li><li>It gives one real check before you top up: will you lose less on the extras than the charges you skip?</li><li>It is good for class ideas like thinking at the margin, budget lines and consumer choice.</li></ul>
 <p>Where it falls short:</p>
-<ul><li>The worth numbers are subjective: they are your own guesses. The page cannot know them.</li><li>It does not know real prices, coupons, delivery time or passes.</li><li>It treats all extras as one lump with the same worth per rupee. Real extras vary.</li><li>The prices and charges are examples, not data from any app.</li></ul>
+<ul><li>The worth numbers are subjective: they are your own guesses. The page cannot know them.</li><li>It does not know real prices, coupons, delivery time or passes.</li><li>It treats all extras as one lump with the same worth per rupee. Real extras vary.</li><li>Apart from the platform presets, the prices and charges are examples. The presets use charges supplied for this project, and real apps change them often.</li></ul>
 <p>To use it for real, enter your own cart and be honest about the extras. If you would not miss them, set the extra items’ subjective worth low.</p></details>
-<details><summary>Why does the budget line touch both sides at the same number?</summary><p>If you spend nothing, you keep all your money. That is the top-left point, at the height of your whole budget. If you spend everything on items, you keep nothing. That is the bottom-right point, at the width of your whole budget. Both numbers are your budget, so the dashed line runs corner to corner. The solid line sits below it while charges apply, because every order pays them.</p></details>
-<details><summary>Why does the budget line have a notch?</summary><p>A charge only applies to small carts. When your cart reaches the number where the charge stops, your bill suddenly gets smaller. So the money you keep suddenly gets bigger, and the line jumps up. That jump is the notch.</p><p>With the starting numbers (budget ₹200, charge ₹30 below ₹99): a ₹98 cart costs ₹128 and leaves you ₹72. A ₹99 cart costs ₹99 and leaves you ₹101. The jump is the ₹30 charge you stop paying, minus ₹1 for the extra item. The carts just before the notch are the dead zone: you pay more for less.</p></details>
-<details><summary>Why are the indifference curves bent (kinked)?</summary><p>A curve joins all the carts that make you equally happy. Your main items are subjectively worth more to you than their price. So up to your main cart, each rupee of items feels big, and you would give up a lot of money to keep it. That makes the curve steep.</p><p>After your main cart, extra items are worth less than their price. You would give up less money for them, so the curve gets flatter. The bend sits exactly where your main cart ends.</p><p>Example: if main items are worth 2.0×, each ₹1 of them feels like ₹2. If extra items are worth 0.6×, each ₹1 of extras feels like 60 paise. The bend is sharp because we use only two simple numbers. Real feelings fade smoothly, so real curves would be smooth.</p></details>
+<details><summary>Why does the budget line touch both sides at the same number?</summary><p>If you spend nothing, you keep all your money. That is the top-left point, at the height of your whole budget. If you spend everything on items, you keep nothing. That is the bottom-right point, at the width of your whole budget. Both numbers are your budget, so the purple dashed line runs corner to corner. The solid line sits below it while charges apply, because every order pays them.</p></details>
+<details><summary>Why does the budget line have a notch?</summary><p>A charge only applies to small carts. When your cart reaches the number where the charge stops, your bill suddenly gets smaller. So the money you keep suddenly gets bigger, and the line jumps up. That jump is the notch.</p><p>With the starting numbers (budget ₹200, charge ₹30 below ₹100): a ₹99 cart costs ₹129 and leaves you ₹71. A ₹100 cart costs ₹100 and leaves you ₹100. The jump is the ₹30 charge you stop paying, minus ₹1 for the extra item. The carts just before the notch are the dead zone: you pay more for less.</p></details>
+<details><summary>Why are the indifference curves bent (kinked)?</summary><p>A curve joins all the carts that make you equally happy. Your main items are subjectively worth more to you than their price. So up to your main cart, each rupee of items feels big, and you would give up a lot of money to keep it. That makes the curve steep.</p><p>After your main cart, extra items are worth less than their price. You would give up less money for them, so the curve gets flatter. The bend sits exactly where your main cart ends.</p><p>Example: if main items are worth 1.5×, each ₹1 of them feels like ₹1.50. If extra items are worth 0.75×, each ₹1 of extras feels like 75 paise. The bend is sharp because we use only two simple numbers. Real feelings fade smoothly, so real curves would be smooth.</p></details>
 <details><summary>How are these indifference curves similar to, and different from, the classic ones?</summary><p><b>Similar</b></p><ul><li>Each curve joins all the carts that give you the same satisfaction, so you are indifferent between them.</li><li>A curve further from the corner is better.</li><li>The curves of one person never cross.</li><li>The slope shows the trade-off: how much money you would give up for a little more cart.</li><li>They bend toward the corner, because each extra rupee of items feels worth less to you than the one before.</li><li>You pick the highest curve that touches your budget line.</li></ul><p><b>Different</b></p><ul><li>A textbook graph shows two goods, such as pizza and burgers. Here one side is the cart and the other side is money left. Economists often use money left to stand for everything else you could buy.</li><li>A textbook curve is smooth, because the feeling fades a little at every step. Ours has two straight pieces and one bend, because we use only two subjective worth numbers: one for main items and one for extra items. It is like a smooth hill drawn with two ramps.</li><li>A textbook budget line is straight. Ours has a notch where a charge ends, so the best choice can sit at the corner of the notch instead of at a smooth touching point.</li><li>Real feelings are smooth, so a real curve would have no sharp bend. We use two numbers so you can type them and check every sum by hand.</li></ul></details>
 <details><summary>Why does the graph show money left?</summary>
 <p>A charge buys you nothing, so it cannot be one of the things on the graph. It only cuts the money you keep. So the graph shows the cart on one side and the money you keep on the other.</p></details>
@@ -179,13 +235,24 @@ svg.ico text{font-size:13px;font-weight:700;fill:#fff}
 <script>
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-function f1(n){return (n<0?'−':'')+'₹'+Math.abs(n).toFixed(1).replace(/\.0$/,'')}
+function f1(n){var t=Math.abs(n).toFixed(2).replace(/\.00$/,'').replace(/(\.\d)0$/,'$1');return (n<0?'−':'')+'₹'+t}
+function R(n){return Math.round(n*100)/100}
 function gs(n){return (n>1e-9?'+':'')+f1(Math.abs(n)<1e-9?0:n)}
 function L(a,b,c,d,k){return '<line x1="'+a+'" y1="'+b+'" x2="'+c+'" y2="'+d+'" class="'+k+'"/>'}
 function Tx(x,y,t,k,anc,rot){return '<text x="'+x+'" y="'+y+'"'+(k?' class="'+k+'"':'')+(anc?' text-anchor="'+anc+'"':'')+(rot?' transform="rotate(-90 '+x+' '+y+')"':'')+'>'+t+'</text>'}
 function nice(span,n){var raw=span/Math.max(n,1),p=Math.pow(10,Math.floor(Math.log(raw)/Math.LN10)),f=raw/p;return (f<1.5?1:f<3?2:f<7?5:10)*p}
-var fees=[{n:'Delivery fee',a:30,u:99}],names=['Small cart fee','Handling fee','Rain fee'],openK={},fs=false,root=document.documentElement;
-function feeAt(x){var s=0;fees.forEach(function(f){if(x<f.u)s+=f.a});return s}
+var fees=[{n:'Delivery fee',a:30,u:100}],names=['Small cart fee','Handling fee','Rain fee'],openK={},fs=false,root=document.documentElement;
+function on(f,x){return f.always||x<f.u}
+function feeAt(x){var s=0;fees.forEach(function(f){if(on(f,x))s+=f.a});return R(s)}
+var PRE={blinkit:{name:'Blinkit',fees:[{n:'Delivery fee',a:30,u:149},{n:'Handling fee',a:5,u:99,always:true},{n:'Small cart fee',a:20,u:99}]},
+zepto:{name:'Zepto',fees:[{n:'Delivery fee',a:30,u:49}]},
+instamart:{name:'Swiggy Instamart',fees:[{n:'Delivery fee',a:35.7,u:149},{n:'Handling fee',a:3.01,u:149,always:true}]},
+example:{name:'Class example',fees:[{n:'Delivery fee',a:30,u:100}]}};
+var curP='example';
+function feeTxt(){return fees.map(function(f){return (f.n||'Charge')+' '+f1(f.a)+(f.always?' on every order':' below ₹'+f.u)}).join(' · ')}
+function updP(){var bs=$('pgrid').children;for(var i=0;i<bs.length;i++)bs[i].setAttribute('aria-pressed',bs[i].dataset.p===curP?'true':'false');
+$('pn').textContent=(curP?PRE[curP].name:'Your own charges')+': '+feeTxt()+'.'}
+function setP(k){curP=k;fees=PRE[k].fees.map(function(f){return {n:f.n,a:f.a,u:f.u,always:!!f.always}});buildFees();render();updP()}
 var STAR='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1baf7a" d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>';
 var COIN='<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#e08a2d"/><text x="12" y="16.5" text-anchor="middle">₹</text></svg>';
 var IC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
@@ -195,23 +262,23 @@ var MOON=IC+'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>';
 function calc(c,mm,P,r){var x=c.x,w,p,st=[];
 if(c.kind==='C'){w=0;p=0;st=['You buy nothing, so you pay nothing and get nothing.']}
 else{var ex=x-P,e=r*ex;w=mm*P+e;p=x+feeAt(x);
-st.push('Your main items (subjective worth): ₹'+P+' × '+mm.toFixed(1)+'× = '+f1(mm*P));
+st.push('Your main items (subjective worth): ₹'+P+' × '+(+mm.toFixed(2))+'× = '+f1(mm*P));
 if(c.kind==='top')st.push('Extras (subjective worth): ₹'+ex+' × '+r.toFixed(2)+'× = '+f1(e));
 st.push('Items you buy: ₹'+x+(ex?' (₹'+P+' + ₹'+ex+')':''));
-fees.forEach(function(f){st.push(esc(f.n||'Charge')+': '+(x<f.u?'₹'+f.a:'free'))})}
+fees.forEach(function(f){st.push(esc(f.n||'Charge')+': '+(on(f,x)?'₹'+f.a:'free'))})}
 var mx=Math.max(w,p,1),cl=c.S>1e-9?'pos':(c.S<-1e-9?'neg':'');
 return '<details class="calc" data-k="'+c.k+'"'+(openK[c.k]?' open':'')+'><summary>See the calculation</summary><div class="cl-row">'+STAR+'<span>Total subjective worth to you</span><b>'+f1(w)+'</b></div><div class="cl-track"><div class="cl-fill w" style="width:'+(w/mx*100).toFixed(1)+'%"></div></div><div class="cl-row">'+COIN+'<span>Total you pay</span><b>'+f1(p)+'</b></div><div class="cl-track"><div class="cl-fill p" style="width:'+(p/mx*100).toFixed(1)+'%"></div></div><ul class="cl-steps"><li>'+st.join('</li><li>')+'</li></ul><div class="cl-eq"><span>Net gain = '+f1(w)+' − '+f1(p)+'</span><b class="gain '+cl+'">'+gs(c.S)+'</b></div></details>'}
 function buildFees(){
-$('fees').innerHTML=fees.map(function(f,i){return '<div class="fee" data-i="'+i+'"><div class="fh"><input class="fn" type="text" maxlength="24" value="'+esc(f.n)+'" data-f="n" aria-label="Charge name">'+(fees.length>1?'<button class="btn" type="button" data-rm="'+i+'" aria-label="Remove this charge">✕</button>':'')+'</div><div class="row"><label>Amount</label><input type="range" min="5" max="60" step="5" value="'+f.a+'" data-f="a"><output>₹'+f.a+'</output></div><div class="row"><label>Charged below</label><input type="range" min="49" max="499" step="1" value="'+f.u+'" data-f="u"><output>₹'+f.u+'</output></div></div>'}).join('');
+$('fees').innerHTML=fees.map(function(f,i){return '<div class="fee" data-i="'+i+'"><div class="fh"><input class="fn" type="text" maxlength="24" value="'+esc(f.n)+'" data-f="n" aria-label="Charge name">'+(fees.length>1?'<button class="btn" type="button" data-rm="'+i+'" aria-label="Remove this charge">✕</button>':'')+'</div><div class="row"><label>Amount</label><input type="range" min="0" max="60" step="0.01" value="'+f.a+'" data-f="a"><span class="num"><span>₹</span><input type="number" min="0" max="60" step="0.01" inputmode="decimal" value="'+f.a+'" data-f="a" aria-label="Charge amount in rupees"></span></div><label class="alw"><input type="checkbox" data-f="always"'+(f.always?' checked':'')+'> Charged on every order (never waived)</label>'+(f.always?'':'<div class="row"><label>Charged below</label><input type="range" min="49" max="499" step="1" value="'+f.u+'" data-f="u"><span class="num"><span>₹</span><input type="number" min="49" max="499" step="1" inputmode="numeric" value="'+f.u+'" data-f="u" aria-label="Charged below this cart value, in rupees"></span></div>')+'</div>'}).join('');
 $('addf').hidden=fees.length>=4}
 function render(){
 var mm=+$('m').value,r=+$('r').value;
-var th=[];fees.forEach(function(f){if(th.indexOf(f.u)<0)th.push(f.u)});th.sort(function(a,b){return a-b});
+var th=[];fees.forEach(function(f){if(!f.always&&th.indexOf(f.u)<0)th.push(f.u)});th.sort(function(a,b){return a-b});
 var M=+$('M').value,xm=M,totF=0;fees.forEach(function(f){totF+=f.a});var thv=th.filter(function(t){return t<M});
-var pmax=Math.max(10,M-totF);$('P').max=pmax;var P=Math.min(+$('P').value,pmax);
+var pmax=10;for(var xx=10;xx<=M;xx++){if(xx+feeAt(xx)<=M+1e-9)pmax=xx;else break}$('P').max=pmax;var P=Math.min(+$('P').value,pmax);
 var fP=feeAt(P),free=fP===0,nxt=1e9;
-fees.forEach(function(f){if(f.u>P&&f.u<nxt&&f.u+feeAt(f.u)<=M)nxt=f.u});
-var canTop=!free&&nxt<1e9,sE=$('E'),minE=canTop?nxt-P:0,maxE=minE,atMin=+sE.value<=(+sE.min);for(var q0=M-P;q0>=minE;q0--){if(P+q0+feeAt(P+q0)<=M){maxE=q0;break}}
+fees.forEach(function(f){if(!f.always&&f.u>P&&f.u<nxt&&f.u+feeAt(f.u)<=M)nxt=f.u});
+var noDodge=!fees.some(function(f){return !f.always&&f.u>P}),canTop=!free&&nxt<1e9,sE=$('E'),minE=canTop?nxt-P:0,maxE=minE,atMin=+sE.value<=(+sE.min);for(var q0=M-P;q0>=minE;q0--){if(P+q0+feeAt(P+q0)<=M){maxE=q0;break}}
 sE.min=minE;sE.max=maxE;if(atMin||+sE.value<minE)sE.value=minE;sE.disabled=!canTop;
 var extra=canTop?Math.min(Math.max(+sE.value,minE),maxE):0;
 var W=400,H=265,Lm=44,Rm=8,Tm=10,Bm=43;
@@ -220,14 +287,14 @@ $('g').setAttribute('viewBox','0 0 '+W+' '+H);
 var x0=Lm,x1=W-Rm,y0=Tm,y1=H-Bm;
 function X(v){return x0+v*(x1-x0)/xm}
 function Y(v){return y1-v*(y1-y0)/M}
-function bill(x){return x+feeAt(x)}
+function bill(x){return R(x+feeAt(x))}
 function S(x){return mm*P+r*(x-P)-bill(x)}
 var o=[{kind:'A',x:P,S:S(P),t:free?'Order ₹'+P+', no charges':'Pay ₹'+fP+' in charges on ₹'+P}];
 if(canTop){var xb=P+extra,us=th.filter(function(u){return u>xb&&u+feeAt(u)<=M});
 o.push({kind:'top',x:xb,S:S(xb),t:extra===minE?'Top up to ₹'+xb+' with ₹'+extra+' of extras':'Add ₹'+extra+' of extras (cart ₹'+xb+')'});
 us.forEach(function(u){o.push({kind:'top',x:u,S:S(u),t:'Go further: top up to ₹'+u+' with ₹'+(u-P)+' of extras'})})}
 o.push({kind:'C',x:0,S:0,t:'Skip the order'});
-o.forEach(function(c,i){c.k=String.fromCharCode(65+i);c.y=c.kind==='C'?M:M-bill(c.x)});
+o.forEach(function(c,i){c.k=String.fromCharCode(65+i);c.y=c.kind==='C'?M:R(M-bill(c.x))});
 var b=0;for(var i=1;i<o.length;i++)if(o[i].S>o[b].S+1e-9)b=i;
 var K=P;o.forEach(function(c){if(c.kind!=='C'&&c.x>K)K=c.x});
 function cv(Sv){var eP=Math.min(r,1),yP=M+Sv-mm*P,yK=yP-r*(K-P),pts=X(0)+','+Y(M+Sv)+' '+X(P)+','+Y(yP);
@@ -258,19 +325,20 @@ s+='<circle class="dot" cx="'+cx+'" cy="'+cy+'" r="'+(on?6.5:4.5)+'" fill="'+(on
 if(fs){var right=cx>x0+(x1-x0)*0.6,dy=p.kind==='A'?-12:(p.kind==='C'?4:20+14*ti++);s+=Tx(right?cx-10:cx+10,cy+dy,p.k+': ₹'+p.x+' items, ₹'+p.y+' left','pl',right?'end':'start')}
 else s+=Tx(cx+(p.kind==='C'?9:-7),cy+(p.kind==='C'?-8:-9),p.k,'lb',p.kind==='C'?'start':'end')});
 $('g').innerHTML=s;
-var best=o[b],B=canTop?o[1]:null,why,rule='';
-function topWhy(c){var ex=c.x-P,sv=fP-feeAt(c.x),ls=(1-r)*ex;return r>=1?'The extras cost ₹'+ex+' and are subjectively worth ₹'+(r*ex).toFixed(1)+' to you. They are normal items for you, so topping up costs you nothing and you skip ₹'+sv+' in charges.':'The extras cost ₹'+ex+' but are subjectively worth only ₹'+(r*ex).toFixed(1)+' to you. You lose ₹'+ls.toFixed(1)+' of value. That is less than the ₹'+sv+' in charges you skip.'}
+var best=o[b],B=canTop?o[1]:null,why,rule='',rd='';
+function topWhy(c){var ex=c.x-P,sv=R(fP-feeAt(c.x)),ls=(1-r)*ex;return r>=1?'The extras cost ₹'+ex+' and are subjectively worth ₹'+(r*ex).toFixed(1)+' to you. They are normal items for you, so topping up costs you nothing and you skip ₹'+sv+' in charges.':'The extras cost ₹'+ex+' but are subjectively worth only ₹'+(r*ex).toFixed(1)+' to you. You lose ₹'+ls.toFixed(1)+' of value. That is less than the ₹'+sv+' in charges you skip.'}
 if(free)why='Your cart is already ₹'+P+'. You pay no charges.';
-else if(best.kind==='A')why=B?'You pay ₹'+fP+' in charges. Topping up would lose you ₹'+((1-r)*(B.x-P)).toFixed(1)+' of value to save only ₹'+(fP-feeAt(B.x))+' in charges.':'You pay ₹'+fP+' in charges. Your budget is too small to top up past them.';
+else if(noDodge&&best.kind==='A')why='Your cart is already ₹'+P+'. The only charge left is ₹'+fP+', which every order pays, so topping up cannot remove it.';
+else if(best.kind==='A')why=B?'You pay ₹'+fP+' in charges. Topping up would lose you ₹'+((1-r)*(B.x-P)).toFixed(1)+' of value to save only ₹'+R(fP-feeAt(B.x))+' in charges.':'You pay ₹'+fP+' in charges. Your budget is too small to top up past them.';
 else if(best.kind==='top')why=topWhy(best);
 else why='You skip. Paying the charges or topping up both leave you worse off than not ordering.';
-if(B){var svB=fP-feeAt(B.x),exB=B.x-P,rs=1-svB/exB;rule=rs<=0?'Rule: the extras cost ₹'+exB+', which is less than the ₹'+svB+' in charges you skip. So topping up (B) beats paying, even if the extras are worth nothing to you.':'Rule: top up (B) instead of paying the charges when the extras are subjectively worth more than '+rs.toFixed(2)+'× their price to you.'}
-$('best').innerHTML='<h2>Best choice: '+best.k+'. '+best.t+'</h2><p>'+why+'</p>'+(rule?'<p>'+rule+'</p>':'');
+if(B){var svB=R(fP-feeAt(B.x)),exB=B.x-P,rs=1-svB/exB;rd=RD(svB,exB,rs,r);rule=rs<=0?'Rule: the extras cost ₹'+exB+', which is less than the ₹'+svB+' in charges you skip. So topping up (B) beats paying, even if the extras are worth nothing to you.':'Rule: top up (B) instead of paying the charges when the extras are subjectively worth more than '+rs.toFixed(2)+'× their price to you.'}
+$('best').innerHTML='<h2>Best choice: '+best.k+'. '+best.t+'</h2><p>'+why+'</p>'+(rule?'<p class="rl">'+rule+'</p>':'')+rd;
 var h='';o.forEach(function(c,n){var on2=n===b;
 h+='<div class="opt'+(on2?' on':'')+'"><div class="top2"><div><b>'+c.k+'</b> '+c.t+(on2?'<span class="pill">Best</span>':'')+'</div><div class="gain '+(c.S>1e-9?'pos':(c.S<-1e-9?'neg':''))+'">'+gs(c.S)+'</div></div>'+calc(c,mm,P,r)+'</div>'});
 $('opts').innerHTML=h;
-$('Mo').textContent='₹'+M;$('Po').textContent='₹'+P;$('mo').textContent=mm.toFixed(1)+'×';$('ro').textContent=r.toFixed(2)+'×';$('Eo').textContent=canTop?'₹'+extra:'—';
-$('eh').textContent=free?'Your cart already skips every charge, so you do not need extras.':(canTop?'The smallest top-up that skips a charge is ₹'+minE+'. You can add more.':'Your budget is too small to top up past the charges.');
+sv('Mo',M);sv('Po',P);sv('mo',+mm.toFixed(2));sv('ro',+r.toFixed(2));sv('Eo',canTop?extra:'');$('Po').max=pmax;$('Eo').min=minE;$('Eo').max=maxE;$('Eo').disabled=!canTop;
+$('eh').textContent=free?'Your cart already skips every charge, so you do not need extras.':(noDodge?'No charge is left to skip by topping up, so you do not need extras.':(canTop?'The smallest top-up that skips a charge is ₹'+minE+'. You can add more.':'Your budget is too small to top up past the charges.'));
 }
 function setFs(on){fs=on;var g=$('gcard');g.classList.toggle('fs',on);document.body.style.overflow=on?'hidden':'';$('fsb').innerHTML=on?CLS+' Close':EXP+' Full screen';
 if(on&&g.requestFullscreen){try{var pr=g.requestFullscreen();if(pr&&pr.catch)pr.catch(function(){})}catch(e){}}
@@ -287,11 +355,19 @@ $('fsb').addEventListener('click',function(){setFs(!fs)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!$('help').hidden)help(false);else if(fs)setFs(false)}});
 document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&fs)setFs(false)});
 window.addEventListener('resize',function(){if(fs)render()});
-['M','P','m','r','E'].forEach(function(i){$(i).addEventListener('input',render)});
-$('fees').addEventListener('input',function(e){var t=e.target,fe=t.closest('.fee');if(!fe)return;var f=fees[+fe.dataset.i],k=t.dataset.f;if(k==='n')f.n=t.value;else{f[k]=+t.value;t.nextElementSibling.textContent='₹'+t.value}render()});
-$('fees').addEventListener('click',function(e){var t=e.target.closest('[data-rm]');if(t){fees.splice(+t.dataset.rm,1);buildFees();render()}});
-$('addf').addEventListener('click',function(){if(fees.length<4){var mx=Math.max.apply(null,fees.map(function(f){return f.u}));fees.push({n:names[fees.length-1]||'Extra charge',a:15,u:Math.min(499,mx+50)});buildFees();render()}});
-$('opts').addEventListener('toggle',function(e){var t=e.target;if(t&&t.dataset&&t.dataset.k)openK[t.dataset.k]=t.open},true);
+function sv(id,v){var n=$(id);if(document.activeElement!==n)n.value=v}
+function bindNum(sid,nid){var s=$(sid),n=$(nid);n.addEventListener('change',function(){var v=parseFloat(n.value);if(isNaN(v)){n.value=s.value;return}s.value=v;n.value=s.value;render()});n.addEventListener('keydown',function(e){if(e.key==='Enter')n.blur()})}
+['M','P','m','r','E'].forEach(function(i){$(i).addEventListener('input',render);bindNum(i,i+'o')});
+$('fees').addEventListener('input',function(e){var t=e.target,fe=t.closest('.fee');if(!fe)return;curP=null;updP();var f=fees[+fe.dataset.i],k=t.dataset.f;if(k==='n'){f.n=t.value;render();return}if(t.type==='range'){f[k]=+t.value;fe.querySelector('input[type=number][data-f="'+k+'"]').value=t.value;render()}});
+$('fees').addEventListener('change',function(e){var t=e.target;if(t.type==='checkbox'){fees[+t.closest('.fee').dataset.i].always=t.checked;curP=null;buildFees();render();updP();return}if(t.type!=='number')return;curP=null;updP();var fe=t.closest('.fee'),f=fees[+fe.dataset.i],k=t.dataset.f,sl=fe.querySelector('input[type=range][data-f="'+k+'"]'),v=parseFloat(t.value);if(isNaN(v)){t.value=sl.value;return}sl.value=v;t.value=sl.value;f[k]=+sl.value;render()});
+$('fees').addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.type==='number')e.target.blur()});
+$('fees').addEventListener('click',function(e){var t=e.target.closest('[data-rm]');if(t){fees.splice(+t.dataset.rm,1);curP=null;buildFees();render();updP()}});
+$('addf').addEventListener('click',function(){if(fees.length<4){var mx=Math.max.apply(null,fees.map(function(f){return f.u}));fees.push({n:names[fees.length-1]||'Extra charge',a:15,u:Math.min(499,mx+50)});curP=null;buildFees();render();updP()}});
+['opts','best'].forEach(function(id){$(id).addEventListener('toggle',function(e){var t=e.target;if(t&&t.dataset&&t.dataset.k)openK[t.dataset.k]=t.open},true)});
+function RD(sv,ex,rs,r){var real=R(ex-sv),h='<details class="rd"'+(openK.rule?' open':'')+' data-k="rule"><summary>How is '+(rs<=0?'this rule':rs.toFixed(2)+'×')+' worked out?</summary><ol><li>Topping up means buying <b>₹'+ex+'</b> of extra items.</li><li>It also skips <b>₹'+sv+'</b> of charges.</li><li>So the real price of the extras is ₹'+ex+' − ₹'+sv+' = <b>'+f1(real)+'</b>.</li>';
+if(rs<=0)h+='<li>That real price is zero or less, so topping up always beats paying, even if the extras are worth nothing to you.</li></ol>';
+else h+='<li>Topping up makes sense when the extras are subjectively worth at least that much to you.</li><li>As a share of their price: ₹'+real+' ÷ ₹'+ex+' = <b>'+rs.toFixed(2)+'</b>.</li><li>The same sum in one line: 1 − '+sv+' ÷ '+ex+' = '+rs.toFixed(2)+'.</li></ol><p>You set the extras at '+r.toFixed(2)+'×, which is '+(r>=rs?'above':'below')+' '+rs.toFixed(2)+'×. So '+(r>=rs?'topping up (B) beats paying the charges (A).':'paying the charges (A) beats topping up (B).')+'</p>';
+return h+'</details>'}
 $('fsb').innerHTML=EXP+' Full screen';
 (function(){var ul=$('rl'),n=ul.children.length-1,i=0,t;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 function step(){var h=ul.firstElementChild.offsetHeight;i++;ul.style.transform='translateY(-'+i*h+'px)';if(i===n){setTimeout(function(){ul.style.transition='none';ul.style.transform='translateY(0)';i=0;void ul.offsetHeight;ul.style.transition=''},650)}}
@@ -299,7 +375,8 @@ function go(){clearInterval(t);t=setInterval(step,3200)}
 setTimeout(function(){step();go()},3200);ul.parentNode.addEventListener('mouseenter',function(){clearInterval(t)});ul.parentNode.addEventListener('mouseleave',go);
 document.addEventListener('visibilitychange',function(){clearInterval(t);if(!document.hidden)go()});
 })();
-buildFees();render();
+$('pgrid').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(b)setP(b.dataset.p)});
+buildFees();render();updP();
 </script>
 </body>
 </html>
