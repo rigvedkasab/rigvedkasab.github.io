@@ -3,40 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rigved Kasab's personal portfolio, interests and projects." />
   <title>Rigved Kasab | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;}
-    body {background: #f9f9f9; color: #333; line-height: 1.6;}
-    header {background: #111; color: #fff; padding: 1.2rem 2rem; text-align: center;}
-    header h1 {font-size: 2.2rem;}
-    header p {font-size: 1rem; color: #aaa;}
-    nav {background: #222; display: flex; justify-content: center; gap: 2rem; padding: 0.8rem; flex-wrap: wrap;}
-    nav a {color: #eee; text-decoration: none; transition: 0.3s;}
-    nav a:hover {color: #00bcd4;}
-    section {padding: 4rem 2rem; max-width: 900px; margin: auto;}
-    h2 {margin-bottom: 1rem; color: #222; border-bottom: 2px solid #00bcd4; display: inline-block; padding-bottom: 0.3rem;}
-    .about p, .contact p {margin-bottom: 1rem;}
-    .projects {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;}
-    .card {background: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.3s;}
-    .card:hover {transform: translateY(-5px);}
-    footer {background: #111; color: #aaa; text-align: center; padding: 1.5rem; margin-top: 2rem; font-size: 0.9rem;}
-    .btn {display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #00bcd4; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;}
-    .btn:hover {background: #0097a7;}
-    .btn.linkedin {background: #0A66C2;}
-    .btn.linkedin:hover {background: #004182;}
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #f9f9f9; color: #333; line-height: 1.6; }
+    header { background: #47704c; color: #fff; padding: 1.1rem 2rem 1.35rem; text-align: center; }
+    .site-logo { display: block; width: min(310px, 75vw); max-height: 112px; object-fit: contain; margin: 0 auto 0.35rem; }
+    header p { font-size: 1rem; color: #edf2ed; }
+    nav { position: sticky; top: 0; z-index: 10; background: #222; display: flex; justify-content: center; gap: 2rem; padding: 0.8rem; flex-wrap: wrap; }
+    nav a { color: #eee; text-decoration: none; transition: 0.3s; }
+    nav a:hover { color: #00bcd4; }
+    section { padding: 4rem 2rem; max-width: 900px; margin: auto; scroll-margin-top: 55px; }
+    h2 { margin-bottom: 1rem; color: #222; border-bottom: 2px solid #00bcd4; display: inline-block; padding-bottom: 0.3rem; }
+    .about p, .contact p { margin-bottom: 1rem; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; border-radius: 8px; padding: 1.35rem; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.3s; display: flex; flex-direction: column; align-items: flex-start; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { color: #222; margin-bottom: 0.55rem; }
+    .card p { color: #555; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 1.5rem; margin-top: 2rem; font-size: 0.9rem; }
+    .btn { display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #00bcd4; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; }
+    .btn:hover { background: #0097a7; }
+    .btn.linkedin { background: #0A66C2; }
+    .btn.linkedin:hover { background: #004182; }
+    @media (max-width: 520px) { header { padding: 1rem 1rem 1.2rem; } .site-logo { max-height: 90px; } nav { gap: 1.25rem; } section { padding: 3rem 1.25rem; } }
   </style>
 </head>
 <body>
   <header>
-    <h1>Rigved Kasab</h1>
+    <img class="site-logo" src="assets/logo.png" alt="Rigved logo">
     <p>SRCC 29/30' | CA Inter | Curious learner</p>
   </header>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="#about">About</a>
-    <a href="projects/">Projects</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -55,11 +60,22 @@ I’m still exploring where my interests will take me ; but that’s the excitin
     <p>Right now, I’m exploring different fields,building essential real life skills and figuring out what I can do best, and how I can uniquely add value to society.</p>
   </section>
 
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="card">
+        <h3>Consumer Choice Simulator: Quick Commerce</h3>
+        <p>An interactive exploration of consumer choice, cart value, delivery charges and platform fees through sliders, graphs and indifference curves.</p>
+        <a class="btn" href="projects/pme/">Explore project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      </article>
+    </div>
+  </section>
+
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Feel free to reach out for collaborations, projects, or just to say hi!.</p>
-    <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=rigvedkasab26@gmail.com&su=Hello%20Rigved&body=I%20would%20like%20to%20connect%20with%20you!" target="_blank">📧 Email</a>
-    <a class="btn linkedin" href="https://www.linkedin.com/in/rigvedkasab/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=rigvedkasab26@gmail.com&su=Hello%20Rigved&body=I%20would%20like%20to%20connect%20with%20you!" target="_blank" rel="noopener noreferrer">📧 Email</a>
+    <a class="btn linkedin" href="https://www.linkedin.com/in/rigvedkasab/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
   </section>
 
   <footer>
