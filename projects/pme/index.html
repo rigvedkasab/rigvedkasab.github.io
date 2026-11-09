@@ -281,7 +281,7 @@ fees.forEach(function(f){if(!f.always&&f.u>P&&f.u<nxt&&f.u+feeAt(f.u)<=M)nxt=f.u
 var noDodge=!fees.some(function(f){return !f.always&&f.u>P}),canTop=!free&&nxt<1e9,sE=$('E'),minE=canTop?nxt-P:0,maxE=minE,atMin=+sE.value<=(+sE.min);for(var q0=M-P;q0>=minE;q0--){if(P+q0+feeAt(P+q0)<=M){maxE=q0;break}}
 sE.min=minE;sE.max=maxE;if(atMin||+sE.value<minE)sE.value=minE;sE.disabled=!canTop;
 var extra=canTop?Math.min(Math.max(+sE.value,minE),maxE):0;
-var W=400,H=265,Lm=44,Rm=8,Tm=10,Bm=43;
+var W=400,H=265,Lm=44,Rm=8,Tm=22,Bm=43;
 if(fs){var bx=$('gbox');W=Math.max(300,Math.floor(bx.clientWidth));H=Math.max(260,Math.floor(bx.clientHeight));Lm=62;Rm=22;Tm=18;Bm=58}
 $('g').setAttribute('viewBox','0 0 '+W+' '+H);
 var x0=Lm,x1=W-Rm,y0=Tm,y1=H-Bm;
